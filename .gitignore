@@ -4,3 +4,8 @@
 node_modules/
 platforms/
 plugins/
+lib
+/resources/ios
+/resources/android
+
+*.html~
