@@ -1,0 +1,29 @@
+<ion-view view-title="Dashboard">
+  <ion-content class="padding">
+    <h2>Welcome to Ionic</h2>
+    <div class="ar">
+        <canvas id="bgnd" width="440px" height="380px"></canvas>
+    </div>
+
+    <div id='container'>
+        <X3D id="x3d" showStat='true' showLog='false' width="440px" height="380px">
+            <Scene>
+                <Viewfrustum id="vf"></Viewfrustum>
+
+                <MatrixTransform id="root">
+                    <Transform rotation="0 1 0 3.14159265359">
+                            <transform id="planet" translation="0 0 0.2">
+                                <shape id="earth">
+                                    <appearance>
+                                        <material diffuseColor="0.5 1 0"></material>
+                                    </appearance>
+                                    <box size="60 60 60"></box>
+                                </shape>
+                            </transform>
+                    </Transform>
+                </MatrixTransform>
+            </Scene>
+        </X3D>
+    </div>
+  </ion-content>
+</ion-view>

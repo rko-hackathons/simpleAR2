@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	 <meta charset="utf-8">
+	 <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <title>Augmented Reality with X3DOM and JSARToolKit</title>
+
+        <link rel="manifest" href="manifest.json">
+
+    <!-- un-comment this code to enable service worker
+    <script>
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('service-worker.js')
+          .then(() => console.log('service worker installed'))
+          .catch(err => console.log('Error', err));
+      }
+    </script>-->
+
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link rel='stylesheet' type='text/css' href='http://www.x3dom.org/download/x3dom.css'/>
+    <link rel="stylesheet" href="mystyle.css"/>
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- X3DOM script and JSARToolKit5 -->
+    <script type='text/javascript' src='http://www.x3dom.org/download/x3dom.js'> </script>
+    <script type="text/javascript" src="js/JSARToolKit.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/script.js"></script>
+    <!--
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+    -->
+</head>
+<body>
+    <div class="ar">
+        <canvas id="bgnd" width="640px" height="480px"></canvas>
+    </div>
+
+    <div id='container'>
+        <X3D id="x3d" showStat='true' showLog='false' width="640px" height="480px">
+            <Scene>
+                <Viewfrustum id="vf"></Viewfrustum>
+
+                <MatrixTransform id="root">
+                    <Transform rotation="0 1 0 3.14159265359">
+                            <transform id="planet" translation="0 0 0.2">
+                                <shape id="earth">
+                                    <appearance>
+                                        <material diffuseColor="0.5 1 0"></material>
+                                    </appearance>
+                                    <box size="60 60 60"></box>
+                                </shape>
+                            </transform>
+                    </Transform>
+                </MatrixTransform>
+            </Scene>
+        </X3D>
+    </div>
+</body>
+</html>
